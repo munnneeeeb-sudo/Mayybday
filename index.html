@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Surprise For Someone Special ✨</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #090914;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================
+   STARS
+========================= */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+#countdownScreen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #28234a,
+            #090914 70%
+        );
+}
+
+.countdown-container {
+    width: 100%;
+    max-width: 850px;
+    animation: fadeUp 1.5s ease;
+}
+
+.eye {
+    font-size: 18px;
+    letter-spacing: 4px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.countdown-container h1 {
+    font-size: 60px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #f7b2ff,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mystery {
+    max-width: 600px;
+    margin: auto;
+    font-size: 19px;
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+.countdown {
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 125px;
+    padding: 25px 10px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.3);
+}
+
+.time-box span {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.time-box p {
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.pulse {
+    margin-top: 25px;
+    font-size: 25px;
+    animation: pulse 2s infinite;
+}
+
+.wait {
+    margin-top: 45px;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   SURPRISE
+========================= */
+
+#surpriseScreen {
+    display: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ff8ab8,
+            #8b5cf6,
+            #16112c
+        );
+}
+
+.hero-small {
+    font-size: 13px;
+    letter-spacing: 5px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    max-width: 1000px;
+    font-size: 70px;
+    line-height: 1.1;
+
+    animation: heroAppear 2s ease;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-button,
+.secret-button {
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: #5b2a86;
+    transition: 0.3s;
+}
+
+.main-button {
+    margin-top: 40px;
+    padding: 16px 38px;
+    border-radius: 50px;
+    font-size: 17px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+}
+
+.main-button:hover,
+.secret-button:hover {
+    transform:
+        translateY(-5px)
+        scale(1.05);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 17px;
+    opacity: 0.65;
+    margin-bottom: 50px;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-box {
+    max-width: 800px;
+    min-height: 250px;
+    margin: auto;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    text-align: left;
+
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+
+    background: white;
+
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.card {
+    padding: 40px 25px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #241d3d,
+            #151221
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform:
+        translateY(-10px);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    opacity: 0.6;
+    line-height: 1.6;
+}
+
+#cardMessage {
+    min-height: 60px;
+    margin-top: 35px;
+
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.photo {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+
+    border-radius: 20px;
+
+    background: #151221;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.photo:hover img {
+    transform: scale(1.12);
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle,
+            #9b5cff,
+            #28143d,
+            #090914
+        );
+}
+
+.final h2 {
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+
+.final-text {
+    max-width: 700px;
+
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.secret-button {
+    margin-top: 40px;
+
+    padding: 16px 35px;
+
+    border-radius: 40px;
+
+    font-size: 16px;
+}
+
+#secretMessage {
+    display: none;
+
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    animation: fadeUp 1s ease;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    z-index: 100;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .countdown-container h1 {
+        font-size: 40px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .final h2 {
+        font-size: 40px;
+    }
+
+    .time-box {
+        width: 70px;
+        padding: 18px 5px;
+    }
+
+    .time-box span {
+        font-size: 26px;
+    }
+
+    .letter-box {
+        padding: 25px;
+        font-size: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<div id="countdownScreen">
+
+    <div class="countdown-container">
+
+        <div class="eye">
+            SOMETHING IS COMING May Ann👀
+        </div>
+
+        <h1>
+            A little surprise is waiting...
+        </h1>
+
+        <p class="mystery">
+
+            I have made something for you
+			I want you to come back later.
+
+            <br><br>
+
+           I hope you are gonna come back here
+		   and see what i have made for your special day.
+
+            <br><br>
+
+            Keep waiting Beh...
+
+            <br><br>
+
+            some things are worth waiting for. ✨
+
+        </p>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>DAYS</p>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>HOURS</p>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>MINUTES</p>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>SECONDS</p>
+            </div>
+
+        </div>
+
+        <div class="pulse">
+            ✨
+        </div>
+
+        <p class="wait">
+            Don't leave yet...
+            the surprise knows when it's time. 💌
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SURPRISE
+========================= -->
+
+<div id="surpriseScreen">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-small">
+            TODAY IS ALL ABOUT YOU ✨
+        </div>
+
+        <h1>
+            🎉 Happy Birthday,
+            <br>
+            <span id="herName">
+                May Ann
+            </span>
+            ! 🎂
+        </h1>
+
+        <p>
+
+            I didn't want to send you
+            just another birthday message.
+
+            <br><br>
+
+            So I made something
+            you could actually explore. 💫
+
+        </p>
+
+        <button
+            class="main-button"
+            onclick="openJourney()"
+        >
+            Begin Your Surprise 💌
+        </button>
+
+    </section>
+
+    <!-- LETTER -->
+
+    <section
+        class="section"
+        id="letterSection"
+    >
+
+        <h2 class="section-title">
+            💌 A Message For You
+        </h2>
+
+        <p class="section-subtitle">
+            Maybe read this slowly...
+        </p>
+
+        <div class="letter-box">
+
+            <span id="typedText"></span>
+
+            <span class="cursor"></span>
+
+        </div>
+
+    </section>
+
+    <!-- CARDS -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            🎁 A Few Things For You
+        </h2>
+
+        <p class="section-subtitle">
+            Click them.
+            I promise they're not dangerous. 😌
+        </p>
+
+        <div class="cards">
+
+            <div
+                class="card"
+                onclick="showCardMessage(1)"
+            >
+
+                <div class="card-icon">
+                    😊
+                </div>
+
+                <h3>
+                    Something Nice
+                </h3>
+
+                <p>
+                    Click to open.
+                </p>
+
+            </div>
+
+            <div
+                class="card"
+                onclick="showCardMessage(2)"
+            >
+
+                <div class="card-icon">
+                    😂
+                </div>
+
+                <h3>
+                    A Random Fact
+                </h3>
+
+                <p>
+                    Definitely important.
+                </p>
+
+            </div>
+
+            <div
+                class="card"
+                onclick="showCardMessage(3)"
+            >
+
+                <div class="card-icon">
+                    💫
+                </div>
+
+                <h3>
+                    One Wish
+                </h3>
+
+                <p>
+                    Click to find out.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="cardMessage"></div>
+
+    </section>
+
+    <!-- PHOTOS -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            📸 Some Memories
+        </h2>
+
+        <p class="section-subtitle">
+            A few moments worth keeping.
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img
+                    src="photo1.jpg"
+                    alt="Memory 1"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="photo2.jpg"
+                    alt="Memory 2"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="photo3.jpg"
+                    alt="Memory 3"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="photo4.jpg"
+                    alt="Memory 4"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="photo5.jpg"
+                    alt="Memory 5"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="photo6.jpg"
+                    alt="Memory 6"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VIDEO -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            🎥 One More Thing...
+        </h2>
+
+        <p class="section-subtitle">
+            Press play when you're ready. 💖
+        </p>
+
+        <div class="video-container">
+
+            <video controls>
+
+                <source
+                    src="video.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support video.
+
+            </video>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+        <h2>
+            Before You Go... ✨
+        </h2>
+
+        <p class="final-text">
+
+            I hope this little surprise
+            made you smile.
+
+            <br><br>
+
+            Distance can make people far away...
+            but it doesn't stop us from
+            making moments special.
+
+            <br><br>
+
+            So today,
+            I just hope you laugh more,
+            smile more,
+            and make beautiful memories.
+
+            <br><br>
+
+            Because today is yours. 💫
+
+        </p>
+
+        <button
+            class="secret-button"
+            onclick="openSecret()"
+        >
+            One Last Secret 👀
+        </button>
+
+        <div id="secretMessage">
+
+            <h3>
+                💌 The Secret
+            </h3>
+
+            <br>
+
+            <p>
+
+                The truth is...
+
+                <br><br>
+
+                I could have simply sent
+                "Happy Birthday."
+
+                <br><br>
+
+                But I wanted to do
+                something that took a little
+                more time and effort.
+
+                <br><br>
+
+                Because some people
+                deserve more than
+                an ordinary message. ✨
+
+                <br><br>
+
+                Happy Birthday again Beh. 🎂💖
+
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio
+    id="birthdayMusic"
+    loop
+>
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+<button
+    class="music-button"
+    onclick="toggleMusic()"
+    aria-label="Toggle music"
+>
+    🎵
+</button>
+
+<script>
+
+/* =========================
+   NAME
+========================= */
+
+const herName = "May Ann";
+
+document.getElementById("herName").textContent = herName;
+
+
+/* =========================
+   BIRTHDAY DATE
+========================= */
+
+/*
+   September 3, 2026
+   12:00 AM
+
+   JavaScript months start at 0:
+
+   January = 0
+   February = 1
+   ...
+   September = 8
+*/
+
+const birthdayDate =
+    new Date(
+        2026,
+        8,
+        3,
+        0,
+        0,
+        0
+    ).getTime();
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        birthdayDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById(
+            "countdownScreen"
+        ).style.display = "none";
+
+        document.getElementById(
+            "surpriseScreen"
+        ).style.display = "block";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60)
+            ) /
+            1000
+        );
+
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+
+/* Start countdown */
+
+updateCountdown();
+
+
+/* Update every second */
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================
+   STARS
+========================= */
+
+const starsContainer =
+    document.getElementById("stars");
+
+for (
+    let i = 0;
+    i < 120;
+    i++
+) {
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =========================
+   BEGIN SURPRISE
+========================= */
+
+function openJourney() {
+
+    const section =
+        document.getElementById(
+            "letterSection"
+        );
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    setTimeout(
+        typeLetter,
+        700
+    );
+}
+
+
+/* =========================
+   TYPEWRITER
+========================= */
+
+const letter =
+`Hey ${herName}! 💖
+
+Happy Birthday May Ann! 🎂✨
+
+I honestly didn't want to send you just another normal birthday message.
+
+So I thought...
+
+why not make something that you could actually open, explore, and hopefully remember?
+
+Even though distance separates us, I still wanted to make your day feel a little more special.
+
+I hope this year brings you happiness, laughter, beautiful memories, and plenty of reasons to smile.
+
+Keep being yourself.
+
+And remember...
+
+today is YOUR day.
+
+So smile.
+Eat cake.
+Take pictures.
+Laugh too much.
+And enjoy every moment. 😌✨
+
+Happy Birthday again Beh! 🎉💖`;
+
+
+let letterIndex = 0;
+let typingStarted = false;
+
+
+function typeLetter() {
+
+    if (typingStarted) {
+        return;
+    }
+
+    typingStarted = true;
+
+    const target =
+        document.getElementById(
+            "typedText"
+        );
+
+
+    function type() {
+
+        if (
+            letterIndex <
+            letter.length
+        ) {
+
+            const character =
+                letter.charAt(
+                    letterIndex
+                );
+
+
+            if (
+                character === "\n"
+            ) {
+
+                target.innerHTML +=
+                    "<br>";
+
+            } else {
+
+                target.textContent +=
+                    character;
+
+            }
+
+
+            letterIndex++;
+
+
+            setTimeout(
+                type,
+                28
+            );
+
+        }
+
+    }
+
+
+    type();
+}
+
+
+/* =========================
+   SURPRISE CARDS
+========================= */
+
+function showCardMessage(number) {
+
+    const messageBox =
+        document.getElementById(
+            "cardMessage"
+        );
+
+
+    if (number === 1) {
+
+        messageBox.textContent =
+            "😊 I hope you always find reasons to smile, even on ordinary days.";
+
+    }
+
+    else if (number === 2) {
+
+        messageBox.textContent =
+            "😂 Random fact: You are officially one year older... but don't worry, I won't tell anyone.";
+
+    }
+
+    else if (number === 3) {
+
+        messageBox.textContent =
+            "💫 My wish for you: may this year bring you unexpected happiness and beautiful moments.";
+
+    }
+
+}
+
+
+/* =========================
+   SECRET MESSAGE
+========================= */
+
+function openSecret() {
+
+    const secret =
+        document.getElementById(
+            "secretMessage"
+        );
+
+
+    if (
+        secret.style.display ===
+        "block"
+    ) {
+
+        secret.style.display =
+            "none";
+
+    }
+
+    else {
+
+        secret.style.display =
+            "block";
+
+        secret.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById(
+            "birthdayMusic"
+        );
+
+
+    if (music.paused) {
+
+        music.play().catch(
+            function() {
+
+                console.log(
+                    "Browser blocked audio playback."
+                );
+
+            }
+        );
+
+    }
+
+    else {
+
+        music.pause();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
